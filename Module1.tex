@@ -1,20 +1,18 @@
+% American Statistical Association style
+% Daphne Chan, Ishan Pranav, Ellen Ryoo, Claire Shi
+
 \documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{graphicx,psfrag,epsf}
 \usepackage{enumerate}
-\usepackage{natbib}
 \usepackage{url}
-% DON'T change margins - should be 1 inch all around.
-\addtolength{\oddsidemargin}{-.5in}%
-\addtolength{\evensidemargin}{-.5in}%
-\addtolength{\textwidth}{1in}%
-\addtolength{\textheight}{-.3in}%
-\addtolength{\topmargin}{-.8in}%
+\addtolength{\oddsidemargin}{-.5in}
+\addtolength{\evensidemargin}{-.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\textheight}{-.3in}
 \begin{document}
-
-\def\spacingset#1{\renewcommand{\baselinestretch}%
+\def\spacingset#1{\renewcommand{\baselinestretch}
 {#1}\small\normalsize} \spacingset{1}
-
 \title{\bf STAT-UB 103 Project, Module 1}
 \author{Daphne Chan\\
 Ishan Pranav\\
@@ -22,202 +20,108 @@ Ellen Ryoo\\
 and\\
 Claire Shi}
 \maketitle
-
 \bigskip
 \begin{abstract}
-The text of your abstract. 200 or fewer words.
+Working with real data is the best way to learn statistics. This project is an opportunity to do just that.
 \end{abstract}
-
 \newpage
-\spacingset{1.45} % DON'T change the spacing!
+\spacingset{1.08}
 \section{Introduction}
-\label{sec:intro}
+\label{sec:introduction}
+\subsection{Data sources}
+While exploring potential variables to examine, we discovered three data sets available from the Federal Reserve Economic Data website: the Federal Funds Effective Rate ("interest rates"), the unemployment rate among all persons in the United States between 15 and 64 years of age ("unemployment"), and the gross domestic product of the United States ("GDP"). We grouped the data points by quarter and narrowed our focus to the 40 observations between the quarter beginning January 1, 2013, and the quarter beginning October 1, 2022---a 10-year period. 
+\begin{itemize}
+\item Interest rates: \url{https://fred.stlouisfed.org/series/FEDFUNDS}
+\item Unemployment: \url{https://fred.stlouisfed.org/series/LRUN64TTUSQ156S}
+\item GDP: \url{https://fred.stlouisfed.org/series/GDP}
+\end{itemize}
+\subsection{Motivation}
+As business students, we are interested in the relationship between macroeconomic measurements because they are the lifeblood of business and are directly linked to the topics we study in our other courses. We hope to discover empirical relationships between the variables that confirm our understanding of economics or reveal insights that our hypotheses overlook. 
+\subsection{Hypotheses}
+Before exploring the data set, we hypothesize a positive relationship between the interest rate and the GDP. Recalling that during periods of low economic output (low GDP), the Federal Reserve generally implements an expansionary monetary policy, we predict that the interest rate decreases alongside GDP. On the other hand, we expect a negative relationship between the interest rate and unemployment. This is because high unemployment is associated with low economic output---another case in which the Federal Reserve might decrease interest rates to encourage growth.
 
-Body of paper.  Margins in this document are roughly 0.75 inches all
-around, letter size paper.
-
+\section{Scatterplots}
+\label{sec:scatterplot}
+\subsection{Interest rates \textit{vs.} unemployment}
 \begin{figure}
 \begin{center}
-\includegraphics[width=3in]{fig1.pdf}
+\includegraphics[width=3.5in]{images/unemployment-scatterplot.png}
 \end{center}
-\caption{Consistency comparison in fitting surrogate model in the tidal
-power example. \label{fig:first}}
+\caption{Scatterplot of unemployment (horizontal axis) and interest rates (vertical axis). \label{fig:unemploymentscatterplot}}
 \end{figure}
+As expected, there is a negative relationship between unemployment and interest rates. The trendline is flat for the portion with high unemployment rates because it is very unusual for interest rates to fall below zero. On the very right, there is one outlier.
 
-\begin{table}
-\caption{D-optimality values for design $X$ under five different scenarios.  \label{tab:tabone}}
+There are also three data points significantly below the major trendline. Those observations were collected during the COVID-19 pandemic, which is a potential "cause" for the unusual data. Even when the unemployment rate was relatively low, the Federal Reserve was not confident enough in the general economic situation to raise interest rates.
+\begin{figure}
 \begin{center}
-\begin{tabular}{rrrrr}
-one & two & three & four & five\\\hline
-1.23 & 3.45 & 5.00 & 1.21 & 3.41 \\
-1.23 & 3.45 & 5.00 & 1.21 & 3.42 \\
-1.23 & 3.45 & 5.00 & 1.21 & 3.43 \\
-\end{tabular}
+\includegraphics[width=3.5in]{images/gdp-scatterplot.png}
 \end{center}
-\end{table}
+\caption{Scatterplot of GDP (horizontal axis) and interest rates (vertical axis).
+\label{fig:gdpscatterplot}}
+\end{figure}
+\subsection{Interest rates \textit{vs.} GDP}
+The pattern in Figure~\ref{fig:gdpscatterplot} indicates a strong positive correlation up to just under USD\$22,000 billion. The positive correlation falls out of expectations beginning in the last quarter of 2019, then resumes in the second half of 2022.
 
-\begin{itemize}
-\item Note that figures and tables (such as Figure~\ref{fig:first} and
-Table~\ref{tab:tabone}) should appear in the paper, not at the end or
-in separate files.
-\item In the latex source, near the top of the file the command
-\verb+\newcommand{\blind}{1}+ can be used to hide the authors and
-acknowledgements, producing the required blinded version.
-\item Remember that in the blind version, you should not identify authors
-indirectly in the text.  That is, don't say ``In Smith et. al.  (2009) we
-showed that ...''.  Instead, say ``Smith et. al. (2009) showed that ...''.
-\item These points are only intended to remind you of some requirements.
-Please refer to the instructions for authors
-at \url{http://amstat.tandfonline.com/action/authorSubmission?journalCode=uasa20&page=instructions#.VFkk7fnF_0c}
-\item For more about ASA\ style, please see \url{http://journals.taylorandfrancis.com/amstat/asa-style-guide/}
-\item If you have supplementary material (e.g., software, data, technical
-proofs), identify them in the section below.  In early stages of the
-submission process, you may be unsure what to include as supplementary
-material.  Don't worry---this is something that can be worked out at later stages.
-\end{itemize}
-
-\section{Methods}
-\label{sec:meth}
-Don't take any of these section titles seriously.  They're just for
-illustration.
-
-\section{Verifications}
-\label{sec:verify}
-This section will be just long enough to illustrate what a full page of
-text looks like, for margins and spacing.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-{\bf With this spacing we have 25 lines per page.}
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.
-
-
-
-\section{Conclusion}
-\label{sec:conc}
-
-
-\bigskip
+One potential "cause" for the abnormalities is the COVID-19 pandemic, which began at the end of 2019. During the pandemic, GDP dropped drastically from USD\$21,538 billion in the first quarter of 2020 to USD\$19,636 billion in the second quarter of 2020. Although GDP increased from roughly \$20 trillion to \$25 trillion, the interest rate remained near zero because the Federal Reserve was not confident in the nation's economic performance. This is unusual since periods of high output are typically associated with more robust economies. Once the economy stabilized and GDP began to increase steadily, the Federal Reserve increased interest rates to curb inflation. 
+\section{Other variables}
+\label{sec:othervariables}
+This project considers the impact of GDP and unemployment on interest rates. However, other variables may be useful predictors of the interest rate. For example, inflation, consumer spending, investment, government spending, and profits from imports and exports all contribute to this metric. Since the Federal Funds Rate is determined by the Federal Reserve, it is a product of great deliberation and is influenced by many economic indicators that reflect the overall health of the market.
+\section{Graphical summaries}
+\label{sec:graphicalsummaries}
+\begin{figure}
 \begin{center}
-{\large\bf SUPPLEMENTARY MATERIAL}
+\includegraphics[width=4in]{images/interest-rate-summary.png}
 \end{center}
-\begin{description}
+\caption{Summary report for interest rates. There are no apparent outliers.\label{fig:interestratesummary}}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[width=4in]{images/unemployment-summary.png}
+\end{center}
+\caption{Summary report for unemployment. The maximum (13.2 percent) was an outlier in the second quarter of 2020 (represented by a star on the boxplot).\label{fig:unemploymentsummary}}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[width=4in]{images/gdp-summary.png}
+\end{center}
+\caption{Summary report for GDP. There are no apparent outliers.\label{fig:gdpsummary}}
+\end{figure}
+Compared to the scatterplots (Figures \ref{fig:unemploymentscatterplot} and \ref{fig:gdpscatterplot}), the graphical summaries (Figures \ref{fig:interestratesummary}, \ref{fig:unemploymentsummary}, and \ref{fig:gdpsummary}) provide insufficient information about outliers. The graphs and boxplots in the graphical summaries only consider one variable at a time. In the case of unemployment, only one outlier meets the "one-and-a-half-times-the-interquartile-range" standard for determining an outlier. Meanwhile, the irregularities---like low-interest rates during the high-GDP COVID-19 era---go unnoticed when variables are examined one at a time. For this reason, the scatterplot can provide more insight into whether a specific combination of two variables is unusual.
+\section{Size-dependent variability}
+\label{sec:sizedepdendentvariability}
+GDP does not suffer from significant size-dependent variability. The histogram is close to symmetrical; the mean is not significantly larger than the median, relative to the number of data points; the median line on the boxplot is approximately in the middle of the box; and the line on the right of the box is just slightly longer than the line on the left of the box. There are no outliers. Applying a \textit{log}-transformation on the GDP variable does not provide value in statistical analysis.
 
-\item[Title:] Brief description. (file type)
+Meanwhile, the opposite is true for interest rates and unemployment. The histograms for these variables are right-skewed and the boxplots depict the median line on the low (left) side. While there are no outliers for the interest rate variable, the single outlier for the unemployment variable is on the high side (13.2 percent). The interest rate and unemployment variables suffer from size-dependent variability, so applying a \textit{log}-transformation can bring the high outliers in line with the rest of the data and magnify the lower observations, allowing clearer analysis of the data. 
+\begin{figure}
+\begin{center}
+\includegraphics[width=4in]{images/log-interest-rate-summary.png}
+\end{center}
+\caption{Summary report for interest rates after applying a \textit{log}-transformation. There are no apparent outliers.\label{fig:loginterestratesummary}}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[width=4in]{images/log-unemployment-summary.png}
+\end{center}
+\caption{Summary report for unemployment after applying a \textit{log}-transformation. The outlier of 13.2 percent remains apparent.\label{fig:logunemploymentsummary}}
+\end{figure}
+\section{Logarithmic-scale scatterplots}
+\label{sec:logtransformations}
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.5in]{images/log-unemployment-log-scatterplot.png}
+\end{center}
+\caption{Scatterplot of unemployment (horizontal axis, logarithmic) and interest rates (vertical axis, logarithmic).\label{fig:logunemploymentlogscatterplot}}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.5in]{images/gdp-log-scatterplot.png}
+\end{center}
+\caption{Scatterplot of GDP (horizontal axis) and interest rates (vertical axis, logarithmic).\label{fig:gdplogscatterplot}}
+\end{figure}
+\subsection{Results of \textit{log}-transformation}
+As depicted in Figures \ref{fig:logunemploymentlogscatterplot} and \ref{fig:gdplogscatterplot}, taking the natural logarithm of the interest rate and unemployment observations yields a clearer negative relationship between unemployment and interest rates and a clearer positive relationship between GDP and interest rates. The correlation is quite strong in both cases.
+\subsection{Conclusion}
+Having analyzed the data we confirmed our hypothesis: there is a strong positive relationship between GDP and interest rates, and a strong negative relationship between unemployment and interest rates.
 
-\item[R-package for  MYNEW routine:] R-package ÒMYNEWÓ containing code to perform the diagnostic methods described in the article. The package also contains all datasets used as examples in the article. (GNU zipped tar file)
-
-\item[HIV data set:] Data set used in the illustration of MYNEW method in Section~ 3.2. (.txt file)
-
-\end{description}
+We conclude that there exists a positive correlation between economic output (as measured by GDP) and the logarithm of the interest rate and a negative correlation between the logarithm of the unemployment rate and the logarithm of the interest rate. 
 \end{document}
