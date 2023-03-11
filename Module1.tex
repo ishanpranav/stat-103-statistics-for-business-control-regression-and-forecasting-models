@@ -29,7 +29,7 @@ Working with real data is the best way to learn statistics. This project is an o
 \section{Introduction}
 \label{sec:introduction}
 \subsection{Data sources}
-While exploring potential variables to examine, we discovered three data sets available from the Federal Reserve Economic Data website: the Federal Funds Effective Rate ("interest rates"), the unemployment rate among all persons in the United States between 15 and 64 years of age ("unemployment"), and the gross domestic product of the United States ("GDP"). We grouped the data points by quarter and narrowed our focus to the 40 observations between the quarter beginning January 1, 2013, and the quarter beginning October 1, 2022---a 10-year period. 
+While exploring potential variables to examine, we discovered three data sets available from the Federal Reserve Economic Data website: the Federal Funds Effective Rate (``interest rates''), the unemployment rate among all persons in the United States between 15 and 64 years of age (``unemployment''), and the gross domestic product of the United States (``GDP''). We grouped the data points by quarter and narrowed our focus to the 40 observations between the quarter beginning January 1, 2013, and the quarter beginning October 1, 2022---a 10-year period. 
 \begin{itemize}
 \item Interest rates: \url{https://fred.stlouisfed.org/series/FEDFUNDS}
 \item Unemployment: \url{https://fred.stlouisfed.org/series/LRUN64TTUSQ156S}
@@ -43,7 +43,7 @@ Before exploring the data set, we hypothesize a positive relationship between th
 \section{Scatterplots}
 \label{sec:scatterplot}
 \subsection{Interest rates \textit{vs.} unemployment}
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=4in]{images/unemployment-scatterplot.png}
 \end{center}
@@ -51,8 +51,8 @@ Before exploring the data set, we hypothesize a positive relationship between th
 \end{figure}
 As expected, there is a negative relationship between unemployment and interest rates. The trendline is flat for the portion with high unemployment rates because it is very unusual for interest rates to fall below zero. On the very right, there is one outlier.
 
-There are also three data points significantly below the major trendline. Those observations were collected during the COVID-19 pandemic, which is a potential "cause" for the unusual data. Even when the unemployment rate was relatively low, the Federal Reserve was not confident enough in the general economic situation to raise interest rates.
-\begin{figure}[h]
+There are also three data points significantly below the major trendline. Those observations were collected during the COVID-19 pandemic, which is a potential ``cause'' for the unusual data. Even when the unemployment rate was relatively low, the Federal Reserve was not confident enough in the general economic situation to raise interest rates.
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=4in]{images/gdp-scatterplot.png}
 \end{center}
@@ -62,14 +62,14 @@ There are also three data points significantly below the major trendline. Those 
 \subsection{Interest rates \textit{vs.} GDP}
 The pattern in Figure~\ref{fig:gdpscatterplot} indicates a strong positive correlation up to just under USD\$22,000 billion. The positive correlation falls out of expectations beginning in the last quarter of 2019, then resumes in the second half of 2022.
 
-One potential "cause" for the abnormalities is the COVID-19 pandemic, which began at the end of 2019. During the pandemic, GDP dropped drastically from USD\$21,538 billion in the first quarter of 2020 to USD\$19,636 billion in the second quarter of 2020. Although GDP increased from roughly \$20 trillion to \$25 trillion, the interest rate remained near zero because the Federal Reserve was not confident in the nation's economic performance. This is unusual since periods of high output are typically associated with more robust economies. Once the economy stabilized and GDP began to increase steadily, the Federal Reserve increased interest rates to curb inflation. 
+One potential ``cause'' for the abnormalities is the COVID-19 pandemic, which began at the end of 2019. During the pandemic, GDP dropped drastically from USD\$21,538 billion in the first quarter of 2020 to USD\$19,636 billion in the second quarter of 2020. Although GDP increased from roughly \$20 trillion to \$25 trillion, the interest rate remained near zero because the Federal Reserve was not confident in the nation's economic performance. This is unusual since periods of high output are typically associated with more robust economies. Once the economy stabilized and GDP began to increase steadily, the Federal Reserve increased interest rates to curb inflation. 
 \section{Other variables}
 \label{sec:othervariables}
 This project considers the impact of GDP and unemployment on interest rates. However, other variables may be useful predictors of the interest rate. For example, inflation, consumer spending, investment, government spending, and profits from imports and exports all contribute to this metric. Since the Federal Funds Rate is determined by the Federal Reserve, it is a product of great deliberation and is influenced by many economic indicators that reflect the overall health of the market.
 \section{Graphical summaries}
 \label{sec:graphicalsummaries}
-Compared to the scatterplots (Figures \ref{fig:unemploymentscatterplot} and \ref{fig:gdpscatterplot}), the graphical summaries (Figures \ref{fig:interestratesummary}, \ref{fig:unemploymentsummary}, and \ref{fig:gdpsummary}) provide insufficient information about outliers. The graphs and boxplots in the graphical summaries only consider one variable at a time. In the case of unemployment, only one outlier meets the "one-and-a-half-times-the-interquartile-range" standard for determining an outlier. Meanwhile, the irregularities---like low-interest rates during the high-GDP COVID-19 era---go unnoticed when variables are examined one at a time. For this reason, the scatterplot can provide more insight into whether a specific combination of two variables is unusual.
-\begin{figure}[h]
+Compared to the scatterplots (Figures \ref{fig:unemploymentscatterplot} and \ref{fig:gdpscatterplot}), the graphical summaries (Figures \ref{fig:interestratesummary}, \ref{fig:unemploymentsummary}, and \ref{fig:gdpsummary}) provide insufficient information about outliers. The graphs and boxplots in the graphical summaries only consider one variable at a time. In the case of unemployment, only one outlier meets the ``one-and-a-half-times-the-interquartile-range'' standard for determining an outlier. Meanwhile, the irregularities---like low-interest rates during the high-GDP COVID-19 era---go unnoticed when variables are examined one at a time. For this reason, the scatterplot can provide more insight into whether a specific combination of two variables is unusual.
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=3.5in]{images/interest-rate-summary.png}
 \end{center}
@@ -92,26 +92,26 @@ Compared to the scatterplots (Figures \ref{fig:unemploymentscatterplot} and \ref
 GDP does not suffer from significant size-dependent variability. The histogram is close to symmetrical; the mean is not significantly larger than the median, relative to the number of data points; the median line on the boxplot is approximately in the middle of the box; and the line on the right of the box is just slightly longer than the line on the left of the box. There are no outliers. Applying a \textit{log}-transformation on the GDP variable does not provide value in statistical analysis.
 
 Meanwhile, the opposite is true for interest rates and unemployment. The histograms for these variables are right-skewed and the boxplots depict the median line on the low (left) side. While there are no outliers for the interest rate variable, the single outlier for the unemployment variable is on the high side (13.2 percent). The interest rate and unemployment variables suffer from size-dependent variability, so applying a \textit{log}-transformation can bring the high outliers in line with the rest of the data and magnify the lower observations, allowing clearer analysis of the data. 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=4in]{images/log-interest-rate-summary.png}
 \end{center}
 \caption{Summary report for interest rates after applying a \textit{log}-transformation. There are no apparent outliers.\label{fig:loginterestratesummary}}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=4in]{images/log-unemployment-summary.png}
 \end{center}
 \caption{Summary report for unemployment after applying a \textit{log}-transformation. The outlier of 13.2 percent remains apparent.\label{fig:logunemploymentsummary}}
 \end{figure}
 \section{Logarithmic-scale scatterplots}
-\begin{figure}[h]
+\begin{figure}
 \begin{center}
 \includegraphics[width=3.5in]{images/log-unemployment-log-scatterplot.png}
 \end{center}
 \caption{Scatterplot of unemployment (horizontal axis, logarithmic) and interest rates (vertical axis, logarithmic).\label{fig:logunemploymentlogscatterplot}}
 \end{figure}
-\begin{figure}[h!]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=3.5in]{images/gdp-log-scatterplot.png}
 \end{center}
