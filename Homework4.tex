@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\title{STAT-UB 103 Homework 4}
+\author{Ishan Pranav}
+\date{February 14, 2023}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\renewcommand{\theenumi}{\alph{enumi}}
+\newcommand{\degreef}{\degree F}
+\begin{document}
+\maketitle
+\section{Find}
+\[\sigma^2_X=25.\]
+
+\[\sigma^2_Y=16.\]
+
+\[\rho_{X, Y}=-0.5.\]
+\begin{enumerate}
+\item
+\[\sigma_{X, Y}=\rho_{X, Y}\sigma_X\sigma_Y.\]
+
+\[\sigma_{X, Y}=-0.5\sqrt{(25)(16)}=-10.\]
+\item
+\[\sigma_{2X, 3Y}=(\rho_{X, Y})(2\sigma_X)(3\sigma_Y).\]
+
+\[\sigma_{2X, 3Y}=(-0.5)(2)(3)(4)(5)=-60.\]
+\item
+\[\sigma^2_{X+Y}=\sigma^2_X+\sigma^2_Y+2\sigma_{X, Y}.\]
+
+\[\sigma^2_{X+Y}=25+16-2(10)=21.\]
+\item
+\[\sigma^2_{2X+3Y}=(2\sigma_X)^2+(3\sigma_Y)^2+2\sigma_{2X, 3Y}.\]
+
+\[\sigma^2_{2X+3Y}=4\sigma^2_X+9\sigma^2_Y+2\sigma_{2X, 3Y}.\]
+
+\[\sigma^2_{2X+3Y}=4(25)+9(16)-2(60)=124.\]
+\end{enumerate}
+\end{document}
