@@ -38,4 +38,160 @@
 
 \[\sigma^2_{2X+3Y}=4(25)+9(16)-2(60)=124.\]
 \end{enumerate}
+\section{A motel}
+\begin{enumerate}
+\item
+Let it be assumed each instance of a missed reservation is completely independent of all other instances. Each guest either arrives or does not arrive to claim their reservation. The number of guests ($n$) will be at most 20 per day. Since there are a fixed number of independent binary trials, each with a known probability of success ($p$), the probability that the number of guests ($X$) is equal to a given value ($k$) can be modeled with a binomial random variable. 
+
+\[\bar{p}=1-p=0.2.\]
+
+\[p=0.8.\]
+
+\[P(X=k)=p_k={\binom{n}{k}}p^k(1-p)^{n-k}.\]
+
+The number of guests ($X$) is a non-negative integer.
+
+\[P(X\leq k)=\sum^{|k|}_{i=0}{\binom{n}{k}p^i(1-p)^{n-i}}.\]
+
+\[P(X\leq 15)=\sum^{15}_{i=0}{\binom{20}{i}(0.8)^i(0.2)^{20-i}\approx 0.3704}\dots\]
+
+This gives the probability of no overbooking since the number of guests is less than or equal to the number of rooms.
+
+Let $C$ represent the compensation that the hotel must pay.
+
+\[C=(\$100)(X-15).\]
+
+\[X=\frac{C}{\$100}+15\]
+
+If there is no overbooking, then the compensation is zero. The compensation is non-negative. 
+
+\[P(X\leq 15)=P(C\leq 0)=P(C=0)\approx 0.3704\dots\]
+
+If there are sixteen guests, then the compensation is \$100.
+
+\[P(X=16)=P(C=\$100)=\binom{20}{16}(0.8)^{16}(0.2)^4\approx 0.2182\dots\]
+
+This gives the generalized probability density function for a given compensation $c$.
+
+\begin{equation}
+P(C=c)=p_c=\begin{cases}
+    \sum^{15}_{i=0}{\binom{20}{i}(0.8)^i(0.2)^{20-i}},&c=0\\\\
+    \binom{20}{\frac{c}{\$100}+15}(0.8)^{\frac{c}{\$100}+15}(0.2)^{5-\frac{c}{\$100}},&c>0.
+\end{cases}
+\end{equation}
+
+\begin{center}
+\begin{tabular}{ccccc}
+ $P(C=0)$&$=$&$P(X\leq 15)$&$\approx$&$0.3704\dots$\\
+ $P(C=\$100)$&$=$&$P(X=16)$&$\approx$&$0.2182\dots$\\
+ $P(C=\$200)$&$=$&$P(X=17)$&$\approx$&$0.2054\dots$\\
+ $P(C=\$300)$&$=$&$P(X=18)$&$\approx$&$0.1369\dots$\\
+ $P(C=\$400)$&$=$&$P(X=19)$&$\approx$&$0.0576\dots$\\
+ $P(C=\$500)$&$=$&$P(X=20)$&$\approx$&$0.0115\dots$\\
+\end{tabular}
+\end{center}
+
+\item
+There will be between 0 and 5 overbookings on a given day. The number of overbookings ($i$) is a non-negative integer between 1 and 5. If there are no overbookings, then the compensation is \$0, leaving the expected value unchanged. For each overbooking, the compensation is \$100.
+
+\[\mu_X=\sum^{n-1}_{i=0}{p_{x_i}x_i}.\]
+
+\[c=\$100i.\]
+
+\[\mu_C=\sum^5_{i=1}{(\$100i)\binom{20}{\frac{\$100i}{\$100}+15}(0.8)^{\frac{\$100i}{\$100}+15}(0.2)^{5-\frac{\$100i}{\$100}}}.\]
+
+\[\mu_C=\$100\sum^5_{i=1}{\binom{20}{i+15}(0.8)^{i+15}(0.2)^{5-i}(i)}\approx\$132.7886\dots\]
+
+The expected compensation is about \$132.79.
+
+\[\sigma_X=\sqrt{\sum^{n-1}_{i=0}{(p_{x_i})(x_i-\mu_X)^2}}.\]
+
+\begin{align}
+    \sigma_C
+    &=\sqrt{\sum^{15}_{i=0}{(p_{c_i})(c_i-\mu_C)^2}+\sum^{20}_{i=16}{(p_{c_i})(c_i-\mu_C)^2}},\\
+    &=\sqrt{\mu^2_C\sum^{15}_{i=0}{\binom{20}{i}(0.8)^i(0.2)^{20-i}}+\sum^{20}_{i=16}{\binom{20}{i}(0.8)^{i}(0.2)^{20-i}\left(\$100(i-15)-\mu_C\right)^2}},\\
+    &\approx\$131.1155\dots
+\end{align}
+The population standard deviation is about \$131.12.
+\end{enumerate}
+\section{The Lindell Corporation}
+The number of printers in a production run ($N$) is 20. The number of non-defective printers in the production run ($N-K$) is 18, so there are 2 defective printers in the run. A defective printer is defined as a positive result. The number of printers shipped ($n$) is 10. The trials are correlated due to sampling without replacement.
+
+\[P(X=k)=p_k=\frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}.\]
+
+\[P(X=0)=p_0=\frac{\binom{2}{0}\binom{18}{10}}{\binom{20}{10}}=\frac{\binom{18}{10}}{\binom{20}{10}}\approx0.2368\dots\]
+
+The number of defective printers shipped ($X$) s non-negative.
+
+\[P(X\geq 0)=P(X\neq 0)=p_{\bar{0}}=1-\frac{\binom{18}{10}}{\binom{20}{10}}\approx 0.7632\dots\]
+
+The probability that at least one defective printer shipped is about 76.32\%.
+\section{The number of users of an ATM machine}
+\begin{enumerate}
+\item
+It is almost inconceivable for the number of people who use the ATM in a single 15-minute interval ($X$) to be between 26 and 28 people. The probability is near zero. 
+
+\[r=\frac{5}{10\text{ min}}=\frac{1}{2\text{ min}}.\]
+
+\[t=15\text{ min}.\]
+
+\[\lambda=rt=\frac{15\text{ min}}{2\text{ min}}=7.5.\]
+
+\[P(X=k)=p_k=\frac{\lambda^ke^{-k}}{k!}.\]
+
+\[P(26\leq X\leq 28)=\sum^{28}_{i=26}{\frac{7.5^ie^{-7.5}}{i!}}\approx 1.047\dotsc\times 10^{-7}.\]
+
+\item
+\[\lambda=\sigma^2_X.\]
+
+\[t=20\text{ min}.\]
+
+\[\lambda=rt=\frac{20\text{ min}}{2\text{ min}}=10.\]
+
+\[\sigma^2_X=\sqrt{\lambda}=\sqrt{10}\approx 3.1623\dots\]
+\end{enumerate}
+\section{A shipment of fruit crates}
+The number of fruit crates ($N$) is 100. The number of crates in which the fruit shows signs of spoilage ($K$) is 11. A spoiled crate is defined as a positive result. The number of crates inspected ($n$) is 8. The trials are correlated due to sampling without replacement.
+
+\[\lambda=\sigma^2_X.\]
+
+\[P(X=k)=p_k=\frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}.\]
+
+\[P(X=2)=p_2=\frac{\binom{11}{2}\binom{100-11}{8-2}}{\binom{100}{8}}=\frac{\binom{11}{2}\binom{89}{6}}{\binom{100}{8}}\approx 0.1718\dots\]
+
+This is the probability that the number of spoiled crates in the sample ($X$) is 2.
+\section{The probability that an audit of a retail business will turn up irregularities in the collection of state sales tax}
+Let it be assumed each instance of an irregularity is completely independent of all other instances. Each audit either discovers or  does not discover an irregularity. The number of audits ($n$) is 16. Since there is a fixed number of independent binary trials, each with a known probability of success ($p$), the probability that the number of audits with irregularities ($X$) is equal to a given value ($k$) can be modeled with a binomial random variable.
+\[p\approx 0.316.\]
+
+\begin{enumerate}
+\item
+\[P(X=k)=p_k=\binom{n}{k}p^k(1-p)^{n-k}.\]
+
+\[P(X=5)=p_5\approx\binom{16}{5}(0.316)^5(1-0.316)^{11}\approx 0.211.\]
+\item
+\[P(X\geq k)=\sum^n_{i=k}{\binom{n}{i}p^i(1-p)^{n-i}}.\]
+
+\[P(X\geq 5)\approx\sum^{16}_{i=5}{\binom{16}{i}(0.316)^i(1-0.316)^{16-i}}\approx 0.605.\]
+\item
+The number of audits with irregularities is a non-negative integer.
+
+\[P(X<5)=P(\overline{X\geq 5})=1-P(X\geq 5)\approx 0.395.\]
+\item \[P(X\geq 5)-p_5\approx 0.394.\]
+\end{enumerate}
+\section{A machine shop}
+The number of bolts ($N$) is 200. A defective bolt is defined as a positive result. The number of bolts inspected ($n$) is 12. The trials are correlated due to sampling without replacement. 
+
+\[P(X=k)=p_k=\frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}.\]
+
+\begin{enumerate}
+\item
+The number of defective bolts ($K$) is 20.
+
+\[P(X=0)=p_0=\frac{\binom{20}{0}\binom{200-20}{12-0}}{\binom{200}{12}}=\frac{\binom{180}{12}}{\binom{200}{12}}\approx 0.2718\dots\]
+\item
+The number of defective bolts ($K$) is 10. The number of defective bolts discovered ($X$) is not negative.
+
+\[P(X>0)=P(X\neq 0)=p_{\bar{0}}=1-\frac{\binom{10}{0}\binom{200-10}{12-0}}{\binom{200}{12}}=1-\frac{\binom{190}{12}}{\binom{200}{12}}\approx 0.4693\dots\]
+\end{enumerate}
 \end{document}
