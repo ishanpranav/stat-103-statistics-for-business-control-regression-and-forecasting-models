@@ -15,7 +15,7 @@
 \section{A recent survey}
 Let it be assumed each instance of a credit-card balance paid in full is completely independent of all other instances. Each person either pays or does not pay their credit card bill in full. Since there are a fixed number of independent binary trials ($n$), each with a known probability of success ($p$), the probability that the number of bills paid ($X$) is equal to a given value ($k$) can be modeled with a binomial random variable. 
 \[n=400.\]
-\[p=0.3.\]
+\[p\approx 0.30.\]
 
 \[P(X=k)=p_k={\binom{n}{k}}p^k(1-p)^{n-k}.\]
 
@@ -23,15 +23,63 @@ Let it be assumed each instance of a credit-card balance paid in full is complet
 \item
 \[P(X\geq k)=\sum^{n}_{i=k}{p_i}=\sum^{n}_{i=k}{{\binom{n}{i}}p^i(1-p)^{n-i}}.\]
 
-\[P(X\geq 110)=\sum^{400}_{i=110}{{\binom{400}{i}}(0.3)^i(0.7)^{400-i}}\approx 0.8745\dots\]
+\[P(X\geq 110)\approx\sum^{400}_{i=110}{{\binom{400}{i}}(0.30)^i(0.70)^{400-i}}\approx 0.87.\]
 \item\[P(X<k)=\sum^{k-1}_{i=0}{\binom{n}{i}p^i(1-p)^{n-i}}.\]
 
 \begin{align}
 P(125\leq X<140)
 &=P(X<140)-P(X<125)\\
 &=P(X<140)-P(X<125)\\
-&=\left[\sum^{139}_{i=0}{\binom{400}{i}(0.3)^i(0.7)^{400-i}}\right]-\left[\sum^{124}_{i=0}{\binom{400}{i}(0.3)^i(0.7)^{400-i}}\right]\\
-&\approx 0.2921\dots
+&\approx\left[\sum^{139}_{i=0}{\binom{400}{i}(0.30)^i(0.70)^{400-i}}\right]-\left[\sum^{124}_{i=0}{\binom{400}{i}(0.30)^i(0.70)^{400-i}}\right]\\
+&\approx 0.29.
 \end{align}
+\end{enumerate}
+\section{The daily returns on a portfolio}
+Let $X$ represent the daily returns on a portfolio, $\mu_X$ represent the mean daily return, and $\sigma_X$ represent the standard deviation of daily returns.
+
+\[\mu_X\approx 0.001.\]
+
+\[\sigma_X\approx 0.002.\]
+\begin{enumerate}
+\item The probability that the number of positive-return days of the next 100 days ($Y$) greater than or to a given value ($k$) can be modeled with a binomial random variable.
+
+\[P(Y\geq k)=\sum^{n}_{i=k}{p_i}=\sum^{n}_{i=k}{{\binom{n}{i}}p^i(1-p)^{n-i}}.\]
+
+\[n=100.\]
+
+\[p\approx P(X>0)\approx 1-P(X\leq 0).\]
+The probability of a positive portfolio return on a given day ($p$) is dependent on the return itself, which can be modeled with a Gaussian random variable.
+
+\[z_x=\frac{x-\mu_X}{\sigma_X}.\]
+
+\[z_0\approx\frac{0-0.001}{0.002}\approx -0.5.\]
+
+\[\varphi(z)=\frac{e^{-\frac{z^2}{2}}}{\sqrt{2\pi}}.\]
+
+\[\Phi(x)=\int^x_{-\infty}{\varphi(t)\,\mathrm{d}t}=\frac{1}{\sqrt{2\pi}}\int^x_{-\infty}{e^{-\frac{t^2}{2}}\,\mathrm{d}t}.\]
+
+\[P(z\leq x)=\Phi(x).\]
+
+\[p\approx 1-P(z\leq -0.5)\approx 1-\Phi(-0.5)\approx 0.7.\]
+
+\[P(Y\geq 60)\approx\sum^{100}_{i=60}{{\binom{100}{i}}(0.7)^i(0.3)^{100-i}}\approx1.\]
+\item The probability that the average return for the portfolio over the next 100 days ($\bar{X}$) exceeds 0.0015 follows from the Central Limit Theorem.
+
+\[\mu_{\bar{X}}=\mu_X\approx 0.001.\]
+
+\[\sigma_{\bar{X}}=\frac{\sigma_X}{\sqrt{n}}\approx\frac{0.002}{\sqrt{100}}\approx 0.0002.\]
+
+\[z_{\bar{x}}=\frac{\bar{x}-\mu_{\bar{X}}}{\sigma_{\bar{X}}}.\]
+
+\[z_{0.0015}\approx\frac{0.0015-0.001}{0.002}\approx 0.25.\]
+
+\begin{align}
+P(\bar{X}>0.0015)
+&=1-P(\bar{X}\leq 0.0015)\\
+&\approx 1-P(z\leq 0.25)\\
+&\approx 1-\Phi(0.25)\\
+&\approx 0.4.
+\end{align}
+
 \end{enumerate}
 \end{document}
