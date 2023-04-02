@@ -1,0 +1,237 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+\DeclareMathOperator{\probit}{probit}
+\DeclareMathOperator{\tinv}{tinv}
+\DeclareMathOperator{\Gammafunction}{\Gamma}
+\title{STAT-UB 103 Homework 7}
+\author{Ishan Pranav}
+\date{March 30, 2023}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\renewcommand{\theenumi}{\alph{enumi}}
+\newcommand{\degreeF}{\degree F}
+\pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+\begin{document}
+\maketitle
+\section{A random sample}
+\[\varphi(z)=\frac{e^{-\frac{z^2}{2}}}{\sqrt{2\pi}}.\]
+
+\[\Phi(x)=\int^x_{-\infty}{\varphi(t)\,\mathrm{d}t}=\frac{1}{\sqrt{2\pi}}\int^x_{-\infty}{e^{-\frac{t^2}{2}}\,\mathrm{d}t}.\]
+
+\[P(z\leq x)=\Phi(x).\]
+
+\[\probit(p)=\Phi^{-1}(p)\text{ for }p\in(0,1).\]
+
+Let $n$ represent the number of samples, $\sigma_X$ represent the standard deviation, $\bar{X}$ represent the sample mean, $\alpha$ represent the significance level, and $H_0$ represent the null hypothesis. $X$ can be modeled with a Gaussian distribution.
+
+\[n=100.\]
+
+\[\sigma_X=60.\]
+
+\[\bar{X}=110.\]
+
+\[\alpha=0.05.\]
+
+\[H_0:\,\mu_X=100.\]
+
+\begin{enumerate}
+\item Let $H_1$ represent the alternative hypothesis.
+
+\[H_1:\,\mu_X>100.\]
+
+\begin{align*}
+P(\bar{X}\geq 110\,|\,H_0)
+&=P\left(z\geq\frac{\bar{X}-\mu_{\bar{X}}}{\sigma_{\bar{X}}}\,\middle|\,\mu_{\bar{X}}=110\right)\\
+&=P\left(z\geq\frac{\bar{X}-\mu_X}{\frac{\sigma_X}{\sqrt{n}}}\,\middle|\,\mu_X=110\right)\\
+&=P\left(z\geq\frac{110-100}{\frac{60}{\sqrt{100}}}\right)\\
+&=1-P\left(z\leq\frac{10}{6}\right).
+\end{align*}
+
+\[1-\Phi\left(\frac{10}{6}\right)\approx 0.0478\dots\]
+
+Given that the true mean of the population is 100, the probability of a sample mean greater than or equal to 110 is less than 0.05. There is sufficient evidence, at the 5-percent significance level, to conclude that the true mean of the population is greater than 100.
+
+\item Let $H_1$ represent the alternative hypothesis.
+
+\[H_1:\,\mu_X\neq 100.\]
+\begin{align*}
+z^*
+&=\probit(\alpha)\\
+&=\probit\left(\frac{0.05}{2}\right)\\
+&=\probit(0.025)\\
+&\approx 1.960\dots
+\end{align*}
+
+\[-1.960\approx\frac{\bar{X}_{\text{min}}-\mu_{\bar{X}}}{\sigma_{\bar{X}}}\approx\frac{\bar{X}_{\text{min}}-100}{\frac{60}{\sqrt{100}}}.\]
+
+\[\bar{X}_{\text{min}}\approx 88.2402\dots\]
+
+\[1.960\approx\frac{\bar{X}_{\text{max}}-\mu_{\bar{X}}}{\sigma_{\bar{X}}}\approx\frac{\bar{X}_{\text{max}}-100}{\frac{60}{\sqrt{100}}}.\]
+
+\[\bar{X}_{\text{max}}\approx 111.760\dots\]
+
+The 95\% confidence interval for $\mu_X$ is $(88.2402, 111.760)$.
+
+We are 95 percent confident that the true mean of the population is between approximately 88.24 and approximately 111.76. There is insufficient evidence, at the 5-percent significance level, to conclude that the true mean of the population is different from 100.
+\item The results differ because the significance level is stricter when applied to a two-tailed test. This is because the probability is divided by two and distributed to both extremes of the distribution. This means that only sample means in one of the two 2.5-percent-area regions are statistically significant. Meanwhile, the one-tailed test is more liberal: It treats any sample mean in the 5-percent-area region as statistically significant.
+\end{enumerate}
+\section{Trading skills of institutional investors}
+\[f_\nu(t)=\frac{\Gammafunction\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\Gammafunction\left(\frac{\nu}{2}\right)}\left(1+\frac{t^2}{\nu}\right)^{-\frac{(v+1)}{2}}.\]
+
+\[F_\nu(t)=\int^{t}_{-\infty}{f_\nu(u)\,\mathrm{d}u}.\]
+
+Let $X$ represent the rate of return, $\bar{X}$ represent the sample mean, $\mu_X$ represent the true mean, $s_X$ represent the standard error, and $\nu$ represent the degrees of freedom. $X$ can be modeled with a Student distribution.
+\[\bar{X}=2.95\%.\]
+\[n=200.\]
+\[\nu=n-1=199.\]
+
+\begin{enumerate}
+\item Let $H_0$ represent the null hypothesis and $H_1$ represent the alternative hypothesis.
+\[H_0:\,\mu_X=0.\]
+\[H_1:\,\mu_X>0.\]
+\item Let $\alpha$ represent the significance level.
+\[\alpha=0.05.\]
+
+\[t^*=F^{-1}_\nu(\alpha)=F^{-1}_{199}(0.05)=1.6525\dots\]
+
+\[1.6525\approx\frac{\bar{X}_{\text{max}}-\mu_{\bar{X}}}{s_{\bar{X}}}\approx\frac{\bar{X}_{\text{max}}}{\frac{8.82\%}{\sqrt{200}}}.\]
+
+\[\bar{X}_{\text{max}}\approx 1.0306\dots\%.\]
+
+The rejection region is $(1.0306,\infty)$.
+\item Assume that the hypothesis is true: The true mean rate of return of round-trip trades is not positive. If a specific positive sample mean with a probability less than 5\% actually occurs, then that sample is statistically significant at the $\alpha=0.05$ level, and, by contradiction, it provides convincing evidence against the hypothesis. In other words, $\alpha$ is the probability of making a false positive (Type I) error: showing that institutional investors performed successfully when in fact they did not.
+\item In the given test output, the test statistic ($t$) is 4.73, and the probability ($P$-value) is 0.000.
+\item Given that the true mean rate of return of round-trip trades is not positive, the probability of a sample mean greater than or equal to 2.95 percent is effectively zero. There is sufficient evidence, at the 5-percent significance level, to conclude that the true mean rate of return is positive.
+\end{enumerate}
+\section{A new dental bonding agent}
+\begin{enumerate}
+\item Let $H_0$ represent the null hypothesis and $H_1$ represent the alternative hypothesis.
+\[H_0:\,\mu_X=5.70\text{ MPa}.\]
+\[H_1:\,\mu_X<5.70\text{ MPa}.\]
+\item Let $\alpha$ represent the significance level, $n$ represent the number of samples, $\nu$ represent the degrees of freedom, and $s$ represent the standard error.
+
+\[\alpha=0.01.\]
+
+\[n=10.\]
+
+\[\nu=n-1=9.\]
+
+\[s=0.46\text{ MPa}.\]
+
+\[t^*=F^{-1}_\nu(\alpha)=F^{-1}_{9}(0.01)\approx -2.8203\dots\]
+
+\[-2.8203\approx\frac{\bar{X}_{\text{min}}-\mu_{\bar{X}}}{s_{\bar{X}}}\approx\frac{\bar{X}_{\text{min}}-5.70\text{ MPa}}{\frac{0.46\text{ MPa}}{\sqrt{10}}}.\]
+
+\[\bar{X}_{\text{min}}\approx 5.29\text{ MPa}.\]
+
+The rejection region is $(-\infty,5.29)$.
+\item Let $\bar{X}$ represent the sample mean and $t$ represent the test statistic.
+
+\[\bar{X}=5.07\text{ MPa}.\]
+
+\[t=\frac{5.07\text{ MPa}-5.70\text{ MPa}}{\frac{0.46\text{ MPa}}{\sqrt{10}}}\approx -4.3309.\]
+
+\[P=0.0010\dots\]
+
+\item Given that the true mean is 5.70, the probability of a sample mean less than or equal to 5.07 percent is approximately 0.0010. There is sufficient evidence, at the 5-percent significance level, to conclude that the true mean is less than 5.70.
+
+\item The test results are only valid if the samples are random, independent, and approximately normally distributed with approximately homogeneous variances.
+\end{enumerate}
+\section{Satellite radio in cars}
+\begin{enumerate}
+\item The parameter of interest is $p$, the true proportion of all satellite radio subscribers who have a satellite radio receiver in their car.
+\item Let $H_0$ represent the null hypothesis.
+\[H_0:\,p=80\%.\]
+\item Let $H_1$ represent the alternative hypothesis.
+\[H_1:\,p<80\%.\]
+\item Let $\alpha$ represent the significance level, $n$ represent the sample size, $\nu$ represent the degrees of freedom, $\hat{p}$ represent the sample proportion, $s_{\hat{p}}$ represent the standard error, and $t$ represent the test statistic.
+
+\[\alpha=0.10.\]
+
+\[n=501.\]
+\[\nu=n-1=500.\]
+
+\[\hat{p}=\frac{396}{501}.\]
+
+\[s_{\hat{p}}=\sqrt{\frac{(\hat{p})(1-\hat{p})}{n}}.\]
+
+\[t=\frac{\frac{396}{501}-80\%}{\sqrt{\frac{(80\%)(20\%)}{501}}}\approx -0.54.\]
+
+\[t^*=F^{-1}_\nu(\alpha)=F^{-1}_{500}(0.10)\approx -1.3.\]
+
+\item \[-1.3\approx\frac{\hat{p}_{\text{min}}-\mu_{\hat{p}}}{s_{\hat{p}}}\approx\frac{\hat{p}_{\text{min}}-80\%}{\sqrt{\frac{(80\%)(20\%)}{396}}}.\]
+
+\[\hat{p}_{\text{min}}\approx 77\%.\]
+
+The rejection region is $(-\infty,77\%)$.
+\item Let $P$ represent the probability of the given test statistic.
+\[P\approx 0.2961\dots\]
+
+\item Given that the true proportion is 80 percent, the probability of a sample proportion less than or equal to $\frac{396}{501}$ is approximately 0.2961. There is insufficient evidence, at the 10-percent significance level, to conclude that the true mean is less than 80 percent. The rejection-region method corroborates this result: $\frac{396}{501}\approx79\%$ is greater than the minimum sample proportion (77\%) and thus outside the rejection region.
+\end{enumerate}
+\section{Test}
+Let $H_0$ represent the null hypothesis, $H_1$ represent the alternative hypothesis, $\alpha$ represent the significance level, $\mu_X$ represent the true mean and the parameter of interest, $\sigma_X$ represent the standard deviation, $n$ represent the sample size, and $\bar{X}$ represent the sample mean.
+\[H_0:\,\mu_X=500.\]
+\[H_1:\,\mu_X>500.\]
+\[\alpha=0.05.\]
+\[\sigma_X=100.\]
+\[n=25.\]
+\begin{enumerate}
+\item Assuming that the null hypothesis is true, the sampling distribution of the sample mean has a mean $\mu_{\bar{X}}=500$ and a standard deviation $\sigma_{\bar{X}}=\frac{100}{\sqrt{25}}=20$.
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    xmin = 450, xmax = 600,
+    ymin = 0, ymax = 0.05]
+    \addplot[domain = 450:550]{gauss(500,20)};
+    \addplot[domain = 500:600]{gauss(550,20)};
+    \addplot[domain = 532.897:550, fill = cyan, opacity = 0.3, draw = none]{gauss(500, 20)} \closedcycle;
+    \addplot[domain = 0:532.897, fill = yellow, opacity = 0.3, draw = none]{gauss(550, 20)} \closedcycle;
+    \draw [very thick, magenta, opacity = 0.5] (axis cs:532.897,0) -- (axis cs:532.897,1);
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{The sampling distribution of the sample mean. The cyan-shaded region represents $\alpha$. The yellow-shaded region represents $\beta$. The magenta axis represents the decision boundary.\label{fig:samplingdistributionofsamplemean}}
+\end{figure}
+\item Let $\bar{X}_0$ represent the value of $\bar{X}$ above which the null hypothesis would be rejected.
+
+\[z^*=\probit(\alpha)=\probit(0.05)\approx 1.6449\dots\]
+
+\[1.6449\approx\frac{\bar{X}_0-\mu_{\bar{X}}}{s_{\bar{X}}}\approx\frac{\bar{X}_0-500}{20}.\]
+
+\[\bar{X}_0\approx 532.897\dots\]
+\item See Figure~\ref{fig:samplingdistributionofsamplemean}.
+\item Let $\beta$ represent the probability of a false negative (Type II error).
+\begin{align*}
+\beta
+&=P(\bar{X}<\bar{X}_0\,|\,\mu_{\bar{X}}=550)\\
+&=P\left(z<\frac{\bar{X}_0-\mu_{\bar{X}}}{\sigma_{\bar{X}}}\right)\\
+&=P\left(z<\frac{532.897-550}{20}\right)\\
+&=P(z<-0.8551\dots)\\
+&\approx 0.1962\dots
+\end{align*}
+\item\[1-\beta\approx 0.8037\dots\]
+\end{enumerate}
+\section{Refer}
+\begin{enumerate}
+\item The probability that the hypothesis test will incorrectly fail to reject the null hypothesis is 1.76 percent.
+\begin{align*}
+\beta
+&=P(\bar{X}<\bar{X}_0\,|\,\mu_{\bar{X}}=575)\\
+&=P\left(z<\frac{\bar{X}_0-\mu_{\bar{X}}}{\sigma_{\bar{X}}}\right)\\
+&=P\left(z<\frac{532.897-575}{20}\right)\\
+&=P(z<-2.1051\dots)\\
+&\approx 0.0176\dots
+\end{align*}
+\item The power of the test is 98.2 percent.
+\[1-\beta\approx 0.9824\dots\]
+\item The power of the test is higher when $\mu_{\bar{X}}=575$ than when $\mu_{\bar{X}}=550$. The three ways to increase power are to increase the significance level ($\alpha$), to increase the mean difference, or to decrease the standard deviation. In this case, the increase in the mean difference accounts for the increase in statistical power.
+\end{enumerate}
+\end{document}
