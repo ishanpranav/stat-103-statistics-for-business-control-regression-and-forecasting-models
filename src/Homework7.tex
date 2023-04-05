@@ -114,7 +114,7 @@ The rejection region is $(1.0306,\infty)$.
 \item Let $H_0$ represent the null hypothesis and $H_1$ represent the alternative hypothesis.
 \[H_0:\,\mu_X=5.70\text{ MPa}.\]
 \[H_1:\,\mu_X<5.70\text{ MPa}.\]
-\item Let $\alpha$ represent the significance level, $n$ represent the number of samples, $\nu$ represent the degrees of freedom, and $s$ represent the standard error.
+\item Let $\alpha$ represent the significance level, $n$ represent the number of samples, $\nu$ represent the degrees of freedom, and $s_X$ represent the standard error.
 
 \[\alpha=0.01.\]
 
@@ -122,7 +122,7 @@ The rejection region is $(1.0306,\infty)$.
 
 \[\nu=n-1=9.\]
 
-\[s=0.46\text{ MPa}.\]
+\[s_X=0.46\text{ MPa}.\]
 
 \[t^*=F^{-1}_\nu(\alpha)=F^{-1}_{9}(0.01)\approx -2.8203\dots\]
 
@@ -145,29 +145,29 @@ The rejection region is $(-\infty,5.29\text{ MPa})$.
 \end{enumerate}
 \section{Satellite radio in cars}
 \begin{enumerate}
-\item The parameter of interest is $p$, the true proportion of all satellite radio subscribers who have a satellite radio receiver in their car.
+\item The parameter of interest is $\pi$, the true proportion of all satellite radio subscribers who have a satellite radio receiver in their car.
 \item Let $H_0$ represent the null hypothesis.
-\[H_0:\,p=80\%.\]
+\[H_0:\,\pi=80\%.\]
 \item Let $H_1$ represent the alternative hypothesis.
-\[H_1:\,p<80\%.\]
-\item Let $\alpha$ represent the significance level, $n$ represent the sample size, $\nu$ represent the degrees of freedom, $\hat{p}$ represent the sample proportion, $s_{\hat{p}}$ represent the standard error, and $t$ represent the test statistic.
+\[H_1:\,\pi<80\%.\]
+\item Let $\alpha$ represent the significance level, $n$ represent the sample size, $\nu$ represent the degrees of freedom, $p$ represent the sample proportion, $s_p$ represent the standard error, and $t$ represent the test statistic.
 
 \[\alpha=0.10.\]
 
 \[n=501.\]
 \[\nu=n-1=500.\]
 
-\[\hat{p}=\frac{396}{501}.\]
+\[p=\frac{396}{501}.\]
 
-\[s_{\hat{p}}=\sqrt{\frac{(\hat{p})(1-\hat{p})}{n}}.\]
+\[s_p=\sqrt{\frac{(p)(1-p)}{n}}.\]
 
 \[t=\frac{\frac{396}{501}-80\%}{\sqrt{\frac{(80\%)(20\%)}{501}}}\approx -0.54.\]
 
 \[t^*=F^{-1}_\nu(\alpha)=F^{-1}_{500}(0.10)\approx -1.3.\]
 
-\item \[-1.3\approx\frac{\hat{p}_{\text{min}}-\mu_{\hat{p}}}{s_{\hat{p}}}\approx\frac{\hat{p}_{\text{min}}-80\%}{\sqrt{\frac{(80\%)(20\%)}{396}}}.\]
+\item \[-1.3\approx\frac{p_{\text{min}}-\mu_p}{s_p}\approx\frac{p_{\text{min}}-80\%}{\sqrt{\frac{(80\%)(20\%)}{396}}}.\]
 
-\[\hat{p}_{\text{min}}\approx 77\%.\]
+\[p_{\text{min}}\approx 77\%.\]
 
 The rejection region is $(-\infty,77\%)$.
 \item Let $P$ represent the probability of the given test statistic.

@@ -15,20 +15,20 @@
 \begin{document}
 \maketitle
 \section{A recent survey}
-Let it be assumed each instance of a credit-card balance paid in full is completely independent of all other instances. Each person either pays or does not pay their credit card bill in full. Since there are a fixed number of independent binary trials ($n$), each with a known probability of success ($p$), the probability that the number of bills paid ($X$) is equal to a given value ($k$) can be modeled with a binomial random variable.
+Let it be assumed each instance of a credit-card balance paid in full is completely independent of all other instances. Each person either pays or does not pay their credit card bill in full. Since there are a fixed number of independent binary trials ($n$), each with a known probability of success ($\pi$), the probability that the number of bills paid ($X$) is equal to a given value ($k$) can be modeled with a binomial random variable.
 
 \[n=400.\]
 
-\[p\approx 0.30.\]
+\[\pi\approx 0.30.\]
 
-\[P(X=k)=p_k={\binom{n}{k}}p^k(1-p)^{n-k}.\]
+\[P(X=k)={\binom{n}{k}}\pi^k(1-\pi)^{n-k}.\]
 
 \begin{enumerate}
-\item\[P(X\geq k)=\sum^{n}_{i=k}{p_i}=\sum^{n}_{i=k}{{\binom{n}{i}}p^i(1-p)^{n-i}}.\]
+\item\[P(X\geq k)=\sum^{n}_{i=k}{\pi_i}=\sum^{n}_{i=k}{{\binom{n}{i}}\pi^i(1-\pi)^{n-i}}.\]
 
 \[P(X\geq 110)\approx\sum^{400}_{i=110}{{\binom{400}{i}}(0.30)^i(0.70)^{400-i}}\approx 0.87.\]
 
-\item\[P(X<k)=\sum^{k-1}_{i=0}{\binom{n}{i}p^i(1-p)^{n-i}}.\]
+\item\[P(X<k)=\sum^{k-1}_{i=0}{\binom{n}{i}\pi^i(1-\pi)^{n-i}}.\]
 
 \begin{align*}
 P(125\leq X<140)
@@ -45,13 +45,13 @@ Let $X$ represent the daily returns on a portfolio, $\mu_X$ represent the mean d
 
 \[\sigma_X\approx 0.002.\]
 \begin{enumerate}
-\item The probability that the number of positive-return days of the next 100 days ($Y$) greater than or to a given value ($k$) can be modeled with a binomial random variable.
+\item The probability ($\pi$) that the number of positive-return days of the next 100 days ($Y$) greater than or to a given value ($k$) can be modeled with a binomial random variable.
 
-\[P(Y\geq k)=\sum^{n}_{i=k}{p_i}=\sum^{n}_{i=k}{{\binom{n}{i}}p^i(1-p)^{n-i}}.\]
+\[P(Y\geq k)=\sum^{n}_{i=k}{{\binom{n}{i}}\pi^i(1-\pi)^{n-i}}.\]
 
 \[n=100.\]
 
-\[p\approx P(X>0)\approx 1-P(X\leq 0).\]
+\[\pi\approx P(X>0)\approx 1-P(X\leq 0).\]
 
 The probability of a positive portfolio return on a given day ($p$) is dependent on the return itself, which can be modeled with a Gaussian random variable.
 
@@ -85,27 +85,27 @@ P(\bar{X}>0.0015)
 \end{align*}
 \end{enumerate}
 \section{In May 1983}
-Let it be assumed each instance of a defective smoke detector is completely independent of all other instances. Each smoke detector is either defective or not effective. Since there are a fixed number of independent binary trials ($n$), each with a known probability of success ($p$), the probability that the number of defective smoke detectors discovered ($X$) is less than or equal to a given value ($k$) can be modeled with a binomial random variable.
+Let it be assumed each instance of a defective smoke detector is completely independent of all other instances. Each smoke detector is either defective or not effective. Since there are a fixed number of independent binary trials ($n$), each with a known probability of success ($\pi$), the probability that the number of defective smoke detectors discovered ($X$) is less than or equal to a given value ($k$) can be modeled with a binomial random variable.
 
-\[P(X\leq k)=\sum^{k}_{i=0}{\binom{n}{i}p^i(1-p)^{n-i}}.\]
+\[P(X\leq k)=\sum^{k}_{i=0}{\binom{n}{i}\pi^i(1-\pi)^{n-i}}.\]
 
 The null hypothesis ($H_0$) is the Commission's suggestion that 40 percent of Honeywell smoke detectors are defective.
 
 \[n=2000.\]
 
-\[H_0: p=0.4.\]
+\[H_0: \pi=0.4.\]
 
 \[P(X\leq 4\,|\,H_0)=\sum^{4}_{i=0}{\binom{2000}{i}(0.4)^i(0.6)^{2000-i}}\approx 2\times 10^{-433}.\]
 \section{Game}
-Let it be assumed each coin flip is completely independent of all other coin flips. Each coin lands on either the obverse side or the reverse side. Since there are a fixed number of independent binary trials ($n$), each with a known probability of success ($p$), and because the number of obverse coins is material ($np\geq 10$) and the number of reverse coins is material ($(n)(1-p)\geq 10$), the number of obverse coins ($X$) can be modeled with a binomial random variable, and it is appropriate to use the normal approximation to the binomial distribution.
+Let it be assumed each coin flip is completely independent of all other coin flips. Each coin lands on either the obverse side or the reverse side. Since there are a fixed number of independent binary trials ($n$), each with a known probability of success ($\pi$), and because the number of obverse coins is material ($n\pi\geq 10$) and the number of reverse coins is material ($(n)(1-\pi)\geq 10$), the number of obverse coins ($X$) can be modeled with a binomial random variable, and it is appropriate to use the normal approximation to the binomial distribution.
 
 \[n=100.\]
 
-\[p=0.5.\]
+\[\pi=0.5.\]
 
-\[np=50\geq 10.\]
+\[n\pi=50\geq 10.\]
 
-\[(n)(1-p)=50\geq 10.\]
+\[(n)(1-\pi)=50\geq 10.\]
 
 Let $c$ represent the compensation received for a given number of obverse coins ($x$).
 
@@ -118,8 +118,8 @@ c_x=\begin{cases}
 \begin{align*}
 P(X\geq 60)
 &=P\left(z\geq\frac{60-\mu_X}{\sigma_X}\right)\\
-&=P\left(z\geq\frac{60-np}{\sqrt{(n)(p)(1-p)}}\right)\\
-&\approx 1-P\left(z<\frac{59.5-np}{\sqrt{(n)(p)(1-p)}}\right)\\
+&=P\left(z\geq\frac{60-n\pi}{\sqrt{(n\pi)(1-\pi)}}\right)\\
+&\approx 1-P\left(z<\frac{59.5-n\pi}{\sqrt{(n\pi)(1-p)}}\right)\\
 &\approx 1-P(z\leq 1.9)\\
 &\approx 1-\Phi(1.9)\\
 &\approx 0.02871\dots
