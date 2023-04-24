@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{STAT-UB 103 Homework 8}
+\author{Ishan Pranav}
+\date{April 23, 2023}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{document}
+\maketitle
+\section{Learning the mechanics}
+\begin{enumerate}
+\item See below.
+\begin{center}
+\begin{tabular}{ccccccc}
+$x_i$&&$y_i$&&$x^2_i$&&$x_iy_i$\\\\
+7&&2&&49&&14\\
+4&&4&&16&&16\\
+6&&2&&36&&12\\
+2&&5&&4&&10\\
+1&&7&&1&&7\\
+1&&6&&1&&6\\
+3&&5&&9&&15\\\\
+$\sum_{i=0}^6{x_i}=24.$&&$\sum_{i=0}^6{y_i}=31.$&&$\sum_{i=0}^6{x^2_i}=116.$&&$\sum_{i=0}^6{x_iy_i}=80.$\\
+\end{tabular}
+\end{center}
+\item\[s^2_{x,y}=\sum^{n-1}_{i=0}{(x_i-\bar{x})(y_i-\bar{y})}\approx -26.2857\dots\]
+\item\[s^2_x=\sum^{n-1}_{i=0}{(x_i-\bar{x})^2}\approx 33.7143\dots\]
+\item\[b_1=\frac{s^2_{x,y}}{s^2_x}\approx -0.7797\dots\]
+\item\[\bar{x}\approx 3.4286\dots\]
+\[\bar{y}\approx 4.4286\dots\]
+\item\[\bar{y}=b_1\bar{x}+b_0.\]
+
+\[b_0=\bar{y}-b_1\bar{x}\approx 7.1017\dots\]
+\item\[\hat{y}=b_1x+b_0=-0.7797x+7.1017.\]
+\end{enumerate}
+\section{Forecasting movie revenues with Twitter}
+\end{document}
