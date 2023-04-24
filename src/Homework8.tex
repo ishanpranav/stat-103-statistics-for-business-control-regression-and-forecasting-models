@@ -37,4 +37,39 @@ $\sum_{i=0}^6{x_i}=24.$&&$\sum_{i=0}^6{y_i}=31.$&&$\sum_{i=0}^6{x^2_i}=116.$&&$\
 \item\[\hat{y}=b_1x+b_0=-0.7797x+7.1017.\]
 \end{enumerate}
 \section{Forecasting movie revenues with Twitter}
+\[b_1=0.078767\dots\]
+Assuming that movie revenue and tweet rate are linearly related, we estimate a movie's opening weekend revenue increases by an average of 7,876,700 dollars as the tweet rate for the movie increases by an average of 100 tweets per hour.
+\section{Congress voting on women's issues}
+Let $y$ represent a legislator's American Association of University Women score as a function of the number of daughters ($x$) that the legislator has.
+
+$y=\beta_1x+\beta_0.$
+
+\begin{enumerate}
+\item If it is true that having a daughter influences voting on women's issues, the sign of $\beta_1$ will be positive. A positive linear coefficient ($\beta_1$) indicates a positive linear relationship.
+\item
+\[n=434.\]
+\[\nu=n-2=432.\]
+\[b_1\approx 0.27.\]
+\[s_{b_1}\approx 0.74.\]
+\[t^*=F^{-1}_{432}(95\%)=1.6484\dots\]
+
+We can be ninety-five-percent confident that the true value of $\beta_1$ is in the interval $(-0.95,1.49)$.
+\end{enumerate}
+\section{RateMyProfessors.com}
+Let $y$ represent the student evaluation of teaching and $x$ represent the RateMyProfessors.com rating.
+\[n=426.\]
+\[r_{x,y}\approx 0.68.\]
+\begin{enumerate}
+\item
+\[r_{x,y}=\frac{s^2_{x,y}}{s_xs_y}=\frac{b_1s_x}{s_y}.\]
+\[b_1=\frac{r_{x,y}s_y}{s_x}.\]
+
+\[\hat{y}=\frac{0.68s_y}{s_x}+b_0.\]
+\item The sample correlation of 0.68 indicates a strong positive linear relationship between the RateMyProfessors.com rating and the student evaluation of teaching. Students who rate their professors highly on RateMyProfessors.com also tend to give high evaluations of teaching.
+\item The estimated slope of the line is positive. A positive sample correlation indicates a positive linear relationship.
+\item There is convincing evidence, at the 0.1\% significance level, that RateMyProfessors.com ratings and student evaluations of teaching are correlated.
+\item\[r^2\approx 0.46.\]
+
+Approximately 46 percent of the variation in student evaluations of teaching can be explained by variations in RateMyProfessors.com ratings.
+\end{enumerate}
 \end{document}
