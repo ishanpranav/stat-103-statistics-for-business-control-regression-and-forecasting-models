@@ -115,19 +115,34 @@ Since the value \$3500.00 lies within that interval, there is insufficient evide
 \end{enumerate}
 \section{Data on stock returns and earnings per share}
 \begin{enumerate}
-\item It is reasonable, although not very useful, to fit a linear regression model to these data. Visually, \autoref{fig:returnepsfittedlineplot} indicates that it is plausible for a negative linear relationship to exist between a company's earnings per share and its stock returns. However, that relationship appears to be weak, and a great deal of error is apparent.
+\item It is somewhat unreasonable to fit a linear regression model to these data.
+
+Visually, \autoref{fig:returnepsfittedlineplot} indicates that it is plausible for a negative linear relationship to exist between a company's earnings per share and its stock returns. However, that relationship appears to be extremely weak, and a great deal of error is apparent.
+
+Observation suggests that the underlying assumption that the data are linear may not hold true, and that it is therefore inappropriate to employ a linear regression model.
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=4in]{src/images/return-eps-fitted-line-plot.png}
 \end{center}
 \caption{Fitted line for return (response) and earnings per share (predictor).\label{fig:returnepsfittedlineplot}}
 \end{figure}
-\item See \autoref{fig:returnepsregression}.
-\begin{figure}
+\item According to the regression analysis in \autoref{fig:returnepsregression}, the earnings per share metric is not necessarily useful for predicting stock returns.
+
+\[H_0:\beta_1=0.\]
+\[H_1:\beta_1\neq 0.\]
+\[\alpha=0.05.\]
+\[P(t=-1.59\,|\,H_0)\approx 0.118.\]
+
+Since, given that the null hypothesis is true, the probability of obtaining a Student $t$-statistic as extreme as (or more extreme than) $-1.59$ is approximately 11.8 percent, which is greater than the significance level ($\alpha=0.05$), there is insufficient evidence to reject the null hypothesis at the five-percent significance level. We cannot conclude beyond a reasonable doubt that a linear relationship exists between a company's earnings per share and its stock returns.
+\begin{figure}[h]
 \begin{center}
 \includegraphics[width=3in]{src/images/return-eps-regression.png}
 \end{center}
 \caption{Fitted line for return (response) and earnings per share (predictor).\label{fig:returnepsregression}}
 \end{figure}
+\item Only 4.82 percent of the variation in a company's stock returns can be explained by variations in its earnings per share using a least-squares regression line. This suggests that the linear relationship is very weak.
+\item We can be ninety-five-percent confident that the expected stock return of companies with earnings per share of 6 is in this interval:
+\[(-13.9263,10.9902)\]
+This is not a useful interval: It contains positive values, negative values, and zero. By straddling zero, the interval provides little to no information about whether a stock with earnings per share of 6 offers positive returns, negative returns, or no returns at all. The large margin of error makes this interval even less meaningful.
 \end{enumerate}
 \end{document}
