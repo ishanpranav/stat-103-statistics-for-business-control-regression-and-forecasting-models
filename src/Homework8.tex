@@ -59,15 +59,12 @@ We can be ninety-five-percent confident that the true value of $\beta_1$ is in t
 
 \end{enumerate}
 \section{RateMyProfessors.com}
-Let $y$ represent the student evaluation of teaching and $x$ represent the RateMyProfessors.com rating.
+Let $y_i$ represent the student evaluation of teaching and $x_i$ represent the RateMyProfessors.com rating.
 \[n=426.\]
 \[r_{x,y}=0.68.\]
 \begin{enumerate}
-\item
-\[r_{x,y}=\frac{s^2_{x,y}}{s_xs_y}=\frac{b_1s_x}{s_y}.\]
-\[b_1=\frac{r_{x,y}s_y}{s_x}.\]
-
-\[\hat{y}=(0.68)\left(\frac{s_y}{s_x}\right)+b_0.\]
+\item Let $\beta_1$ represent the linear coefficient of the RateMyProfessors.com rating, $\beta_0$ represent the constant coefficient, and $\epsilon_i$ represent the error term.
+\[y_i=\beta_1x_i+\beta_0+\epsilon_i.\]
 \item The sample correlation of 0.68 indicates a strong positive linear relationship between the RateMyProfessors.com rating and the student evaluation of teaching. Students who rate their professors highly on RateMyProfessors.com also tend to give high evaluations of teaching.
 \item The estimated slope of the line is positive. A positive sample correlation indicates a positive linear relationship.
 \item There is convincing evidence, at the 0.1\% significance level, that RateMyProfessors.com ratings and student evaluations of teaching are correlated.
@@ -95,31 +92,42 @@ Approximately 46 percent of the variation in student evaluations of teaching can
 \end{center}
 \caption{Linear regression analysis for price (response) and weight (predictor).\label{fig:priceweightregression}}
 \end{figure}
-\item\[y_i=\beta_1x_i+\beta_0+\epsilon_i.\]
+\item Let $y$ represent the price of a ring and $x$ represent the weight of its diamond. \[y_i=\beta_1x_i+\beta_0+\epsilon_i.\]
 \[y_i=b_1x_i+b_0+e_i.\]
 \[\hat{y}=(\$3721.00)x-(\$259.60).\]
-\item Yes, there is evidence of a significant linear relationship between the price and the weight of a diamond. The weight coefficient ($\beta_1$) has a Student $t$-statistic of $-14.99$, with a $P$-value of approximately 0.0000. This probability is statistically significant even at the 0.01 percent significance level ($\alpha=0.0001$), indicating that it is very unlikely statistic that the null hypothesis ($H_0:\beta_1=0$) is true. Therefore, there is sufficient evidence to reject the null hypothesis and conclude in favor of the alternative hypothesis ($H_1:\beta_1\neq 0$), that there is in fact a linear relationship between a diamond's price and its weight.
-\item On average, for each additional caret a diamond weighs, its price is about \$3721.00 more expensive.
+\item Yes, there is evidence of a significant linear relationship between the price of a ring and the weight of its diamond. The weight coefficient ($\beta_1$) has a Student $t$-statistic of $-14.99$, with a $P$-value of approximately 0.0000. This probability is statistically significant even at the 0.01 percent significance level ($\alpha=0.0001$), indicating that it is very unlikely that the null hypothesis ($H_0:\beta_1=0$) is true. Therefore, there is sufficient evidence to reject the null hypothesis and conclude in favor of the alternative hypothesis ($H_1:\beta_1\neq 0$), that there is in fact a linear relationship between a ring's price and its diamond's weight.
+\item On average, for each additional caret a ring's diamond weighs, its price is about \$3721.00 more expensive.
 \[t^*=F^{-1}_{46}(0.025)\approx 2.0129\dots\]
 
 We can be ninety-five-percent confident that the true value of $\beta_1$ is in the interval:
 \[(\$3556.35,\$3885.65)\]
-\item Approximately 97.83 percent of the variation in diamond prices can be explained by variations in diamond weight using a least-squares regression line.
-\item\begin{align*}
-s_e
-&=\sqrt{\frac{1}{\nu_e}\sum^{n-1}_{i=0}{[y-y_i]}}\\
-&=\sqrt{\frac{1}{n-2}\sum^{n-1}_{i=0}{[y-y_i]}}\\
-&\approx\sqrt{1014}\\
-&\approx 31.84\dots
-\end{align*}
+\item Approximately 97.83 percent of the variation in ring prices can be explained by variations in diamond weight using a least-squares regression line.
+\item\[s_e\approx\$31.84\dots\]
 \item\[H_0:\beta_1=\$3500.00.\]
 \[H_1:\beta_0\neq\$3500.00.\]
 \[\alpha=0.01.\]
 \[t^*=F^{-1}_{46}(0.005)\approx 2.6870\dots\]
-We can be ninety-nine-percent confident that the true value of $\beta_1$ is in the interval:
+We can be ninety-nine-percent confident that the true value of $\beta_1$ is in this interval
 \[(\$3501.20,\$3940.80)\]
 Since the value \$3500.00 lies within that interval, there is insufficient evidence to reject the null hypothesis at the one-percent significance level. We cannot conclude beyond a reasonable doubt that the true slope is different from \$3500.00.
-\item 
+\item We can be ninety-five-percent confident that the expected price of rings which weigh 0.230000 carats is in this interval:
+\[(\$586.03,\$606.39)\]
 \end{enumerate}
 \section{Data on stock returns and earnings per share}
+\begin{enumerate}
+\item It is reasonable, although not very useful, to fit a linear regression model to these data. Visually, \autoref{fig:returnepsfittedlineplot} indicates that it is plausible for a negative linear relationship to exist between a company's earnings per share and its stock returns. However, that relationship appears to be weak, and a great deal of error is apparent.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=4in]{src/images/return-eps-fitted-line-plot.png}
+\end{center}
+\caption{Fitted line for return (response) and earnings per share (predictor).\label{fig:returnepsfittedlineplot}}
+\end{figure}
+\item See \autoref{fig:returnepsregression}.
+\begin{figure}
+\begin{center}
+\includegraphics[width=3in]{src/images/return-eps-regression.png}
+\end{center}
+\caption{Fitted line for return (response) and earnings per share (predictor).\label{fig:returnepsregression}}
+\end{figure}
+\end{enumerate}
 \end{document}
