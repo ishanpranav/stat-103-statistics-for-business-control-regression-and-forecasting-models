@@ -46,7 +46,7 @@ Let $y$ represent a legislator's American Association of University Women score 
 \[y_i=\beta_1x_i+\beta_0+\epsilon_i.\]
 
 \begin{enumerate}
-\item If it is true that having a daughter influences voting on women's issues, the sign of $\beta_1$ will be positive. A positive linear coefficient ($\beta_1$) indicates a positive linear relationship.
+\item If it is true that having a daughter influences voting on women's issues, the sign of $\beta_1$ will either be positive or negative. A positive linear coefficient ($\beta_1$) indicates that legislators with daughters are more likely to vote in favor of women's rights issues. A negative linear coefficient indicates that legislators with daughters are less likely to vote in favor of women's rights issues.
 \item
 \[n=434.\]
 \[\nu=n-2=432.\]
@@ -65,7 +65,7 @@ Let $y_i$ represent the student evaluation of teaching and $x_i$ represent the R
 \begin{enumerate}
 \item Let $\beta_1$ represent the linear coefficient of the RateMyProfessors.com rating, $\beta_0$ represent the constant coefficient, and $\epsilon_i$ represent the error term.
 \[y_i=\beta_1x_i+\beta_0+\epsilon_i.\]
-\item The sample correlation of 0.68 indicates a strong positive linear relationship between the RateMyProfessors.com rating and the student evaluation of teaching. Students who rate their professors highly on RateMyProfessors.com also tend to give high evaluations of teaching.
+\item The sample correlation of 0.68 indicates a strong positive linear relationship between the RateMyProfessors.com rating and the student evaluation of teaching. Professors with high RateMyProfessors.com ratings also tend to have high student evaluations of teaching.
 \item The estimated slope of the line is positive. A positive sample correlation indicates a positive linear relationship.
 \item There is convincing evidence, at the 0.1\% significance level, that RateMyProfessors.com ratings and student evaluations of teaching are correlated.
 \item\[r^2\approx 0.46.\]
@@ -94,7 +94,9 @@ Approximately 46 percent of the variation in student evaluations of teaching can
 \end{figure}
 \item Let $y$ represent the price of a ring and $x$ represent the weight of its diamond. \[y_i=\beta_1x_i+\beta_0+\epsilon_i.\]
 \[y_i=b_1x_i+b_0+e_i.\]
-\[\hat{y}=(\$3721.00)x-(\$259.60).\]
+\[\hat{y}=(\text{SGD}\$3721.00)x-(\text{SGD}\$259.60).\]
+
+\[y_{0.23}=\text{SGD}\$596.23.\]
 \item Yes, there is evidence of a significant linear relationship between the price of a ring and the weight of its diamond. The weight coefficient ($\beta_1$) has a Student $t$-statistic of $-14.99$, with a $P$-value of approximately 0.0000. This probability is statistically significant even at the 0.01 percent significance level ($\alpha=0.0001$), indicating that it is very unlikely that the null hypothesis ($H_0:\beta_1=0$) is true. Therefore, there is sufficient evidence to reject the null hypothesis and conclude in favor of the alternative hypothesis ($H_1:\beta_1\neq 0$), that there is in fact a linear relationship between a ring's price and its diamond's weight.
 \item On average, for each additional caret a ring's diamond weighs, its price is about \$3721.00 more expensive.
 \[t^*=F^{-1}_{46}(0.025)\approx 2.0129\dots\]
@@ -141,7 +143,7 @@ Since, given that the null hypothesis is true, the probability of obtaining a St
 \caption{Fitted line for return (response) and earnings per share (predictor).\label{fig:returnepsregression}}
 \end{figure}
 \item Only 4.82 percent of the variation in a company's stock returns can be explained by variations in its earnings per share using a least-squares regression line. This suggests that the linear relationship is very weak.
-\item We can be ninety-five-percent confident that the expected stock return of companies with earnings per share of 6 is in this interval:
+\item We can be ninety-five-percent confident that the stock return of companies with earnings per share of 6 is in this interval:
 \[(-13.9263,10.9902)\]
 This is not a useful interval: It contains positive values, negative values, and zero. By straddling zero, the interval provides little to no information about whether a stock with earnings per share of 6 offers positive returns, negative returns, or no returns at all. The large margin of error makes this interval even less meaningful.
 \end{enumerate}
