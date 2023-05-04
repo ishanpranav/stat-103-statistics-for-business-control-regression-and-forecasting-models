@@ -122,18 +122,20 @@ Having analyzed the data we confirmed our hypothesis: there is a strong positive
 We conclude that there exists a positive correlation between economic output (as measured by GDP) and the logarithm of the interest rate and a negative correlation between the logarithm of the unemployment rate and the logarithm of the interest rate.
 
 \section{Anderson--Darling test}
+\subsection{Gaussian probability plot}
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=4in]{images/interest-rate-probability-plot.png}
 \end{center}
-\caption{Gaussian probability plot for interest rates. \label{fig:interestrateprobabilityplot}}
+\caption{Normal probability plot for interest rates. \label{fig:interestrateprobabilityplot}}
 \end{figure}
 The pattern in the plot of interest rates (\autoref{fig:interestrateprobabilityplot}) seems to indicate non-normality, as the data do not fall in a straight line. In particular, the points on the left end bend vertically below the line which indicates that the left tail is longer than that of a normal distribution. The points on the right end stray away from the line before bending back up.
-
+\subsection{\textit{P}-value}
 The $P$-value resulting from the Anderson--Darling test seems to indicate non-normality since the value is less than 0.005. In the Anderson--Darling hypothesis test, the null hypothesis is that the data follows a Gaussian (normal) distribution, and the alternative hypothesis is that the data do not follow a normal distribution. A low $P$-value indicates that the test statistic obtained is very unlikely given that the null hypothesis. Using a significance level of five percent ($\alpha$=0.05), there is convincing evidence to reject the null hypothesis: The $P$-value is far smaller than 5 percent. Therefore, we conclude that interest rates are not normally distributed.
-
+\subsection{Comparison with summary report}
 The normal curve depicted on the summary report for the interest rate (\autoref{fig:interestratesummary}) is heavily skewed to the right. This finding aligns with the descriptive statistics: We see a large portion of the data accumulated between 0.0 and 0.5. As the interest rate increases, there are fewer and fewer points included within the range, providing a skewed distribution.
 \section{Anderson--Darling test after logarithmic scaling}
+\subsection{Normal probability plot}
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=4in]{images/log-interest-rate-probability-plot.png}
@@ -141,8 +143,14 @@ The normal curve depicted on the summary report for the interest rate (\autoref{
 \caption{Gaussian probability plot for the logarithm of the interest rate. \label{fig:loginterestrateprobabilityplot}}
 \end{figure}
 The pattern in the plot of \textit{log}-scaled interest rates (\autoref{fig:loginterestrateprobabilityplot}) seems to indicate non-normality because the points do not form a straight line. Instead, they bend downwards on the left side of the plot, which means that the lower tail is longer.
-
+\subsection{\textit{P}-value}
 The $P$-value resulting from the Anderson--Darling test also indicates non-normality because it is very close to zero. There is convincing evidence at the $\alpha=0.05$ significance level to reject the null hypothesis. Therefore, we conclude that the logarithm of the interest rate is not normally distributed.
-
+\subsection{Comparison with summary report}
 Once again, the findings based on the plot and the Anderson--Darling test align with the summary report for the logarithm of the interest rate in \autoref{fig:loginterestratesummary}. After applying a \textit{log}-transformation, the distribution now fits the regression line slightly better. According to the descriptive statistics, there is still a large portion of the data accumulated near $-1.0$ and 0.3, but applying the \textit{log}-transformation has resulted in less skew.
+\section{Simple linear regression}
+\section{Multiple linear regression}
+\section{Comparison of regression methods}
+\section{Cook's distance}
+\section{Residual analysis}
+\section{Akaike information criterion, corrected (AICc)}
 \end{document}
