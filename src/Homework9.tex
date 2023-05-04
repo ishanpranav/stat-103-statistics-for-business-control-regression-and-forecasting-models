@@ -21,7 +21,13 @@
 \end{center}
 \caption{Scatterplot for intelligence test score (response) and age at which first words were spoken (predictor).\label{fig:scoreagescatterplot}}
 \end{figure}
-\item
+\item See \autoref{fig:scoreageregression}.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=3in]{src/images/score-age-regression.png}
+\end{center}
+\caption{Linear regression analysis for intelligence test score (response) and age at which first words were spoken (predictor).\label{fig:scoreageregression}}
+\end{figure}
 \item
 \[H_0:\beta_1=0.\]
 \[H_1:\beta_1\neq 0.\]
@@ -32,8 +38,7 @@ There is evidence at the one-half-percent significance level that score is relat
 \[H_1:\beta_1<0.\]
 \[P(t=-3.63\,|\,H_0)\approx\frac{0.002}{2}\approx 0.001.\]
 Given that the null hypothesis is true, the probability of obtaining a Student $t$-statistic as extreme as (or more extreme than) $-3.63$ is approximately 0.1 percent. Since 0.001 is smaller than the significance level ($\alpha=0.005$), there is sufficient evidence to reject the null hypothesis at the half-percent significance level. There is evidence that score is related to age.
-\item
-\[r^2\approx 0.4100\]
+\item \[r^2\approx 0.4100\]
 
 Approximately 41 percent of the variation in a person's intelligence test score can be explained by variations in the age at which they spoke their first words using a least-squares regression line. This suggests that the linear relationship is moderate.
 \item The point (42, 57) is a leverage point because its leverage is 0.65161, which is greater than $\frac{2(k+1)}{n}$. The Cook's distance for this point is 0.678112, which is less than 1, meaning that it is not necessarily a bad leverage point. However, it is still significantly higher than the others: The next-highest is 0.081498. Visually, the point is a good leverage point, but it is still worth evaluating the point.
