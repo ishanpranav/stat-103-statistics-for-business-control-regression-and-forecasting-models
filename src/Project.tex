@@ -20,7 +20,7 @@
 Ishan Pranav\\
 Ellen Ryoo\\
 Claire Shi}
-\date{April 25, 2023}
+\date{May 8, 2023}
 \maketitle
 \bigskip
 \begin{abstract}
@@ -148,9 +148,123 @@ The $P$-value resulting from the Anderson--Darling test also indicates non-norma
 \subsection{Comparison with summary report}
 Once again, the findings based on the plot and the Anderson--Darling test align with the summary report for the logarithm of the interest rate in \autoref{fig:loginterestratesummary}. After applying a \textit{log}-transformation, the distribution now fits the regression line slightly better. According to the descriptive statistics, there is still a large portion of the data accumulated near $-1.0$ and 0.3, but applying the \textit{log}-transformation has resulted in less skew.
 \section{Simple linear regression}
+In the first module of this project, we decided to take the logarithm of the interest rate (response variable) and unemployment (predictor) while leaving GDP (predictor) alone.
+\subsection{Interest rate \textit{vs.} unemployment}
+Let $\log(y)$ represent the interest rate on $\log(x)$ represent unemployment, both on \textit{log} scales. Let $\beta_1$ represent the unemployment coefficient, $\beta_0$ represent the intercept, and $\epsilon$ represent the residual.
+
+\[\log(y)=\beta_1\log(x)+\beta_0+\epsilon.\]
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3.5in]{images/log-log-unemployment-regression.png}
+\end{center}
+\caption{Linear regression analysis for interest rate (response, logarithmic) and unemployment (predictor, logarithmic). \label{fig:loglogunemploymentregression}}
+\end{figure}
+\[b_1=-3.574.\]
+
+The sample unemployment coefficient ($b_1$) is negative, indicating that the interest rate decreases as unemployment increases. Let $H_0$ denote the null hypothesis and $H_1$ denote its alternative. Let $\alpha$ represent the significance level.
+
+\[H_0:\beta_1=0.\]
+\[H_1:\beta_1<0.\]
+\[P(t\leq -7.52\,|\,H_0)\approx\frac{0.000}{2}\approx 0.000.\]
+\[\alpha=0.05.\]
+
+Given that there is no relationship between unemployment and the interest rate, the probability of obtaining a Student $t$-statistic as extreme as (or more extreme than) $-7.52$ is approximately zero. There is convincing evidence to reject the null hypothesis at the 5 percent significance level. We can conclude beyond a reasonable doubt that a negative linear relationship exists between unemployment and the interest rate.
+
+The negative relationship is also reflected in the scatterplot of unemployment and the logarithm of the interest rate in \autoref{fig:logunemploymentlogscatterplot}.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3.5in]{images/log-gdp-regression.png}
+\end{center}
+\caption{Linear regression analysis for interest rate (response, logarithmic) and GDP (predictor). \label{fig:loggdpregression}}
+\end{figure}
+\subsection{Interest rate \textit{vs.} GDP}
+Let $\log(y)$ represent the interest rate on a \textit{log} scale and $x$ represent GDP. Let $\beta_1$ and the GDP coefficient, $\beta_0$ represent the intercept, and $\epsilon$ represent the residual.
+
+\[\log(y)=\beta_1x+\beta_0+\epsilon.\]
+
+\[b_1=0.000070.\]
+
+The slope coefficient for GDP is positive, indicating that the interest rate increases as GDP increases.
+
+\[H_0:\beta_1=0.\]
+\[H_1:\beta_1>0.\]
+\[P(t\geq 1.99\,|\,H_0)\approx\frac{0.053}{2}\approx 0.0265.\]
+\[\alpha=0.05.\]
+
+Given that there is no relationship between GDP and the interest rate, the probability of obtaining a Student $t$-statistic as extreme as (or more extreme than) $1.99$ is approximately 2.65 percent. There is sufficient evidence to reject the null hypothesis at the 5 percent significance level. We can conclude that a positive linear relationship exists between GDP and the interest rate.
+
+The negative relationship is also reflected in the scatterplot of the logarithm of the interest rate and GDP in \autoref{fig:gdplogscatterplot}.
 \section{Multiple linear regression}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3.5in]{images/log-gdp-log-unemployment-regression.png}
+\end{center}
+\caption{Linear regression analysis for interest rate (response, logarithmic) and unemployment (predictor, logarithmic) and GDP (predictor).\label{fig:loggdplogunemploymentregression}}
+\end{figure}
+\[\log(y)=\beta_2\log(x_2)+\beta_1x_1+\beta_0+\epsilon.\]
+
+Let $\log(y)$ represent the interest rate (\textit{log}-scaled), $\log(x_2)$ represent unemployment (\textit{log}-scaled), and $x_1$ represent GDP. Let $\beta_2$ and $\beta_1$ represent their respective coefficients, $\beta_0$ represent the intercept, and $\epsilon$ represent the residual.
+\[\alpha=0.05.\]
+
+\[H_0:\beta_2=0.\]
+\[H_1:\beta_2\neq 0.\]
+\[P(t\leq -6.99\,|\,H_0)\approx 0.000.\]
+
+The \textit{P}-value suggests that unemployment is a significant predictor of the interest rate.
+
+\[H_0:\beta_1=0.\]
+\[H_1:\beta_2\neq 0.\]
+\[P(t\leq -0.000029\,|\,H_0)\approx 0.305.\]
+
+Based on the \textit{P}-value, GDP may not be a significant predictor of the interest rate.
+
+\[H_0:\beta_2=\beta_1=0.\]
+\[H_1:\beta_2\neq 0\text{ or }\beta_1\neq 0.\]
+\[P(F\geq 28.90)\approx 0.000.\]
+
+There is convincing evidence to reject the null hypothesis at the five-percent significance level. We can conclude beyond a reasonable doubt that at least one of the two variables---unemployment and GDP---is a significant predictor of the interest rate.
+
+\[r^2=60.97\%.\]
+
+Approximately 60.97 percent of the variation in the interest rate can be explained by variations in unemployment and GDP using a least-squares regression line. This suggests that the linear relationship is moderately strong. No, the $r^2$ is not appreciably higher than the $r^2$ from the simple regression that only includes unemployment ($r^2=59.83\%$), but it is much higher than the regression that only includes GDP ($r^2=9.46\%$).
 \section{Comparison of regression methods}
+There is an inconsistency between the coefficient for GDP in the simple linear regression compared to the multiple linear regression. In the simple regression, the coefficient is positive, whereas it is negative in the multiple regression. Both coefficients have small magnitudes. 
 \section{Cook's distance}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=4in]{images/leverage-cook-scatterplot.png}
+\end{center}
+\caption{Scatterplot of leverage (horizontal axis) and Cook's distance (vertical axis). \label{fig:leveragecookscatterplot}}
+\end{figure}
+\[\frac{2(k+1)}{n}=\frac{2(2+1)}{40}=0.15.\]
+
+\[\frac{3(k+1)}{n}=\frac{3(2+1)}{40}=0.225.\]
+
+Using $2(k+1)/n$ as the standard for determining leverage points, there are three points with leverage greater than 0.15. Using $3(k+1)/n$, there is only one point with high leverage. The largest leverage is 0.359638, the second-largest is 0.174313, and the third-largest is 0.155365. The Cook's distances are 1.19731, 0.08490, 0.16138, respectively. The results suggest that $3(k+1)/n$ is the appropriate standard, and that the point with leverage of 0.359638 is necessarily a bad leverage point (since its Cook's distance is greater than 1). At that point, the interest rate is $-1.30103$, the logarithm of the unemployment rate is 1.12205, and the GDP is \$19636.731 billion. Based on the scatterplots of the \textit{log}-scaled interest rate and the \textit{log}-scaled unemployment (\autoref{fig:logunemploymentlogscatterplot}) and GDP (\autoref{fig:gdplogscatterplot}), this point appears to be an outlier.
+
+Based on the $r^2$, the significance of the coefficients, and the Cook's distances, we believe that the model fits decently, but is not the best choice. Since the GDP coefficient is not statistically significant, it may be beneficial to re-assess whether the model without GDP is more appropriate. A nested $F$-test may be required to determine if a reduced model is better than the complete one. 
 \section{Residual analysis}
-\section{Akaike information criterion, corrected (AICc)}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3.5in]{images/residuals-fits-scatterplot.png}
+\end{center}
+\caption{Scatterplot of fitted values (horizontal axis) and standardized residuals (vertical axis). \label{fig:residualsfitsscatterplot}}
+\end{figure}
+Based on the scatterplot of the standardized residuals \textit{vs.} the fitted values in \autoref{fig:residualsfitsscatterplot}, there is evidence of non-constant variance. There is a strong pattern to the points in the scatterplot. Since that assumption is violated, we believe that the regression model may be spurious. It may be beneficial to consider additional or alternative variables in the model.
+\section{Automatic methods for selecting predictors}
+\subsection{Akaike information criterion, corrected (AICc)}
+Let $n$ represent the sample size, $k$ represent the number of predictors, and SSE represent the residual sum of squares. The corrected Akaike information criterion is given by the formula:
+\[\mathrm{AICc}=\ln(\mathrm{SSE})+\frac{2(k+2)}{n-k-3}.\]
+
+For the simple linear regression of interest rate (logarithmic) \textit{vs.} unemployment (logarithmic), SSE is approximately 12.585 and AICc is approximately 1.1992. For the simple linear regression of interest rate (logarithmic) \textit{vs.} GDP, SSE is 5.584 and AICc is 0.3865. For the multiple linear regression, SSE is 5.4253 and AICc is 0.35774. Since 0.35774 is the minimum AICc, we conclude that, based on the Aikaike criterion, the multiple regression is the best model.
+\subsection{Coefficient of determination (r-squared)}
+The multiple regression also has the highest coefficient of determination ($r^2=60.97\%$) compared to the regression that only includes unemployment ($r^2=59.83\%$) and the regression that only includes GDP ($r^2=9.46\%$). We arrive at the same conclusion: Based on the coefficient of determination, the multiple regression remains the best model.
+\section{Conclusion}
+The best model appears to be the multiple regression model. This model predicts the logarithm of the Federal Funds Effective Rate (the interest rate) using the logarithm of the unemployment rate among all US persons between 15 and 64 years of age and the US GDP.
+
+The equation for the regression model is given by:
+\[\log(y)=b_2\log(x_2)+b_1x_1+b_0+e.\]
+\[\widehat{\log(y)}=-3.871\log(x_2)-0.000029x_1+2.828.\]
+
+The sample \textit{log}-unemployment coefficient ($b_2=-3.871$) is negative, indicating that as unemployment increases, interest rates decrease. The sample GDP coefficient ($b_1=-0.000029$) is also negative, suggesting that as GDP increases, interest rates decrease slightly. While the findings confirm our hypothesis about the relationship between unemployment and interest rates, the role of GDP in predicting interest rates remains somewhat questionable. This specific model contradicts our preconception of a positive relationship between interest rates and GDP.
 \end{document}
